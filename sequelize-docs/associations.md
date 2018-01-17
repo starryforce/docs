@@ -289,7 +289,7 @@ User.findAll({
 ## Scopes
 这一部分关注关联作用域。关于关联作用域和关联模型上的作用域定义的区别，参见 [Scopes](/manual/tutorial/scopes.html).
 
-关联作用域允许你能够在关联上放置一个作用域（一套`get` and `create`的默认属性）。作用域既可以放置在关联模型上， (关联中的目标模型), 也可以放在新建的表格里 on the through table for n:m relations.
+关联作用域允许你能够在关联上放置一个作用域（一套 `get` 和 `create` 的默认属性）。作用域既可以放置在关联模型上， (关联中的目标模型), 也可以放在新建 n:m 关系表格里。
 
 #### 1:m
 假设我们有 Comment（评论）, Post（帖子）, 和 Image（图片） 三张表。一条评论可以通过 `commentable_id` 和 `commentable` 属性与一张图片或帖子（其中一个）相关联 - 我们称 Post 和 Image 是 `Commentable` 的
@@ -347,12 +347,12 @@ image.addComment(comment);
 UPDATE comments SET commentable_id = 42, commentable = 'image'
 ```
 
-`Comment` 上的工具函数 `getItem` 完成这样的作用 - 它简单的将 `commentable` 上的字符串转换为 `getImage` 或 `getPost` 这样的一个调用 , 提供了一个评论属于帖子或图片的抽象。 You can pass a normal options object as a parameter to `getItem(options)` to specify any where conditions or includes.
+`Comment` 上的工具函数 `getItem` 完成这样的作用 - 它简单的将 `commentable` 上的字符串转换为 `getImage` 或 `getPost` 这样的一个调用 , 提供了一个评论属于帖子或图片的抽象。 你可以传递一个正常的设置对象作为 `getItem(options)` 的参数，来指定任何条件或者预载。
 
 #### n:m
-Continuing with the idea of a polymorphic model, consider a tag table - an item can have multiple tags, and a tag can be related to several items.
+Continuing with the idea of a polymorphic model, consider a tag table - 一个 item 可以有多个 tag,，一个 tag 可以和多个 item 相关。
 
-简要的, the example only shows a Post model, but in reality Tag would be related to several other models.
+简化来看, 示例仅仅展示了一个 Post 模型, 但是实际上 Tag 会和其他的多个模型相关联。
 
 ```js
 const ItemTag = sequelize.define('item_tag', {
@@ -400,7 +400,7 @@ Tag.belongsToMany(Post, {
 });
 ```
 
-Notice that the scoped column (`taggable`) is now on the through model (`ItemTag`).
+注意作用域列 (`taggable`) 现在在关系模型 (`ItemTag`) 上。
 
 We could also define a more restrictive association, for example, to get all pending tags for a post by applying a scope of both the through model (`ItemTag`) and the target model (`Tag`):
 

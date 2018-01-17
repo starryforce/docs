@@ -101,7 +101,7 @@ User.findAll().then(users => {
 
 You can read more about finder functions on models like `.findAll()` at [Data retrieval](/manual/tutorial/models-usage.html#data-retrieval-finders) or how to do specific queries like `WHERE` and `JSONB` at [Querying](/manual/tutorial/querying.html).
 
-### Application wide model options
+### 应用通用模型设置
 
 The Sequelize constructor takes a `define` option which will be used as the default options for all defined models.
 

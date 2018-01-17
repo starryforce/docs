@@ -195,7 +195,7 @@ this.Post.hasMany(this.Comment, {
 User.getPosts({ scope: ['scope1', 'scope2']});
 ```
 
-If you want to create a shortcut method to a scope on an associated model, you can pass the scoped model to the association. Consider a shortcut to get all deleted posts for a user:
+如果你想要在关联模型上创建一个特定作用域的快捷方法，你可以向关联模型传递应用了作用域的模型传递。下面是一个获取所有与一个 user 关联的已被删除的 post 的快捷方式：
 
 ```js
 const Post = sequelize.define('post', attributes, {

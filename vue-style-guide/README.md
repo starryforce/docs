@@ -33,6 +33,23 @@ export default {
 
 在健壮的代码中, prop 定义应该始终尽可能详细，至少应该指定类型。
 
+``` js
+// 更好的做法！
+props: {
+  status: {
+    type: String,
+    required: true,
+    validator: function (value) {
+      return [
+        'syncing',
+        'synced',
+        'version-conflict',
+        'error'
+      ].indexOf(value) !== -1
+    }
+  }
+}
+```
 
 ### 为 `v-for` 设置键值
 
@@ -192,19 +209,20 @@ PascalCase 相比 kebab-case 有一些优势：
 **多个特性的元素应该分多行撰写，每个特性一行。**
 
 
-### 模板中的复杂表达式
+### 模板中简单的表达式
 
 **组件模板应该仅包括简单表达式 , 更加复杂的表达式 应该重构为计算属性或方法。**
 
 
-### 复杂计算属性 <sup data-p="b">强烈推荐</sup>
+### 简单的计算属性 
 
 **复杂计算属性应该尽可能被拆分为许多简单的属性。**
 
 
-### 引用属性值
+### 带引号的特性值
 
 **非空 HTML 属性值应始终包含在引号中(单引或双引，选择不在JS中使用的).**
+HTML 里使用双引号，JS 里使用单引号。
 
 
 ### 指令缩写
@@ -219,7 +237,6 @@ PascalCase 相比 kebab-case 有一些优势：
 
 **组件/实例 选项顺序 应该始终保持一致的排序.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
 
 1. **Side Effects** (triggers effects outside the component)
   - `el`

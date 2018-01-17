@@ -100,12 +100,12 @@ module.exports = {
 
 ```
 
-如果你的模型不需要时间戳、仅需要部分、或是 you are working with an existing database where the columns are named something else, jump straight on to [configuration ][0]to see how to do that.
+如果你的模型不需要时间戳、仅需要部分、或是你正在处理已存在的数据库，他的列名被命名为一些其他东西的，跳转到 [configuration ][0]来看看如何处理.
 
 
 ## Data types
 
-Below are some of the datatypes supported by sequelize. For a full and updated list, see [DataTypes](/variable/index.html#static-variable-DataTypes).
+下面是一些 sequelize 支持的数据类型。 For a full and updated list, see [DataTypes](/variable/index.html#static-variable-DataTypes).
 
 ```js
 Sequelize.STRING                      // VARCHAR(255)
